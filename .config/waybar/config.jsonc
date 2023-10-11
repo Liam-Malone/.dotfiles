@@ -1,0 +1,263 @@
+{
+    "layer": "top",
+    //"output": ["DP-1", "HDMI-A-1"],
+    //"output": "DP-1",
+    "output": "eDP-1",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "modules-left": [
+        //"custom/weather",
+        "disk",
+        "custom/updates",
+        "custom/kernel-ver",
+        "keyboard-state",
+        "keyboard-state#Num",
+        "network",
+        //"idle_inhibitor",
+        //"custom/player",
+        //"mpris",
+        "hyprland/workspaces",
+    ],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [
+        "tray",
+        "cpu",
+        //"temperature",
+        "memory",
+        "battery",
+        //"custom/bat-check", -- unneeded. see battery: on-update
+        "backlight",
+        //"custom/brightness",
+        "pulseaudio#microphone",
+        "pulseaudio",
+        "clock",
+    ],
+
+    "hyprland/window": {
+        "format": "{}",
+    },
+    /*
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "timeout": 30.5
+    },
+    */
+    "disk": {
+        "interval": 30,
+        "format": " {path}: {percentage_used}%",
+        "alt-format": " {path}:{used}\/{total}",
+        "tooltip-format": " {path}:{used}\/{total}",
+    },
+    /*
+    "custom/player":{
+        "exec": "playerctl metadata -i firefox,brave --format '{{emoji(status)}}-{{ title }}'",
+        "interval": 10,
+        "on-click": "playerctl play-pause -i firefox,brave",
+        "min-length": 10,
+        "max-length": 26
+    },
+    */
+    /*
+    "mpris":{
+        "format": "{player_icon}:  {title} {status_icon}",
+	    "format-paused": "{status_icon}: <i>{title}</i>",
+	    "player-icons": {
+	    	"default": "▶",
+	    	"mpv": "🎵",
+            "io": "🎵",
+            "spotify": "🎵",
+	    },
+	    "status-icons": {
+	    	"paused": "⏸",
+            "repeat": ""
+	    },
+        "ignored-players": ["firefox", "brave"],
+        format options are:
+            song:
+                - artist
+                - album
+                - title
+                - length
+                - dynamic (artist, album, title, length)
+            player:
+                - player
+            state:
+                - player-icons
+                - status-icons
+    },
+    */
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "1" : "",
+            "2" : "",
+            "3" : "",
+            "4" : "", 
+            "5" : "",
+            "6" : "",
+            "7" : "",
+            "8" : "",
+            "9" : "",
+            "10" : ""
+        },
+        /*
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        }
+        */
+    },
+    /*
+    */
+    "keyboard-state": {
+        "capslock": true,
+        "format": "A:{icon} ",
+        "format-icons": {"locked": "", "unlocked": ""}
+    },
+    "keyboard-state#Num": {
+        "numlock": true,
+        "format": "Num:{icon}",
+        "format-icons": {"locked": "", "unlocked": ""}
+    },
+    "custom/kernel-ver": {
+        "exec": "uname -r | sed 's/-a.*//p'",
+        "format": " {}",
+        "interval":"once"
+    },
+    "custom/updates": {
+        // maybe add check to not attempt run when offline
+        "exec": "( checkupdates; paru -Qua ) | wc -l",
+        "interval": 7200,
+        "format": "󰏖 {}",
+        "on-click": "( checkupdates; paru -Qua ) | wc -l",
+    },
+    /*
+   "custom/weather" : {
+        "tooltip" : true,
+        "format" : "{}",
+        "interval" : 30,
+        "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
+        "return-type" : "json"
+    },
+    */
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "network": {
+        "format-wifi": " ({bandwidthDownBits})",
+        "interval": 2,
+        "format-ethernet": "{bandwidthDownBits} ",
+        "tooltip-format": "{essid}",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Offline ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "temperature": {
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format": "{: %R   %d/%m}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "backlight": {
+        "device": "acpi_video0",
+        "format": "{icon} {percent}%",
+        "format-icons": ["",""],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6
+    },
+    /*
+    "custom/brightness": {
+        "exec": "~/.config/waybar/scripts/brightness.py",
+        "tooltip": false,
+        "format": "{icon} {}",
+        "format-icons": ["",""],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6,
+        "interval": 1,
+    },
+    */
+    "cpu": {
+        "format": "󰻠 {load}%",
+        "format-alt": "󰻠 {usage}%",
+        "min-length": 8,
+        "max-length": 10
+    },
+    "memory": {
+        "format": " {percentage}%",
+        "min-length": 6,
+        "format-alt": " {used}/{total}GB",
+        "tooltip-format": "{used}/{total}GB",
+    },
+    /*
+    "custom/bat-check": {
+        "exec": "~/.config/waybar/scripts/battery-warn.py 255",
+        "interval": 20,
+        "format": "",
+        "max-length": 0,
+    },
+    */
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "on-update": "/home/liamm/.config/waybar/scripts/battery-warn.py 255",
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": true,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    }
+}
