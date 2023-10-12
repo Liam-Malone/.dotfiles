@@ -49,3 +49,5 @@ export PATH=$PATH:$HOME/paru/pkg/paru/usr/bin:$HOME/scripts:$HOME/odin:$HOME/.ca
 neofetch
 
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[ -f "/home/liamm/.ghcup/env" ] && source "/home/liamm/.ghcup/env" # ghcup-env

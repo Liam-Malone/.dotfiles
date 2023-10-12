@@ -8,6 +8,8 @@ alias findsample='echo "find / -iname *tabliss* 2>/dev/null"'
 alias vi='vim'
 alias vim='nvim'
 alias buildodin='odin build src/ -out:main'
+alias nzig='~/documents/code/zig/zig-dev-build/zig'
+alias build-ghostty='cd ~/oss/ghostty; nzig build -p $HOME/.local -Doptimize=ReleaseFast; cd -'
 
 alias picset='picom -b --config ~/.config/picom/picom.conf'
 alias fehset='feh --bg-fill'
