@@ -16,11 +16,11 @@ fi
 export RASPBERRY_IP=$(sed -n 3p ~/documents/.raspi_info)
 export RASPATH=$(sed -n 5p ~/documents/.raspi_info)
 
-flamingo='\e[3;m\e[1;35m[🦩: \W]\$ \e[m\e[m\]'
-penguin='\e[3;m\e[1;34m[🐧: \W]\$ \e[m\e[m\]'
-shamrock='\e[3;m\e[1;32m[☘️: \W]\$ \e[m\e[m\]'
+flamingo='\e[1;m\e[1;35m \W 🦩 ~> \e[m\e[m\]'
+penguin='\e[1;m\e[1;33m \e[1;m\W\e[m\e[m 🐧 \e[1;32m~>\e[m \e[m\]'
+shamrock='\e[1;m\e[1;32m \W ☘️  ~> \e[m\e[m\]'
 
-alias simple='export PS1="\e[1;34m\$ \e[m"'
+alias simple='export PS1="\e[1;32m ~> \e[m"'
 alias flamingo='export PS1=$flamingo'
 alias penguin='export PS1=$penguin'
 alias shamrock='export PS1=$shamrock'
