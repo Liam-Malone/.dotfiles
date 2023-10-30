@@ -220,32 +220,33 @@
   :init (global-flycheck-mode))
 
 (set-face-attribute 'default nil
-  :font "DejaVu Sans Mono"
-  :height 110
-  :weight 'medium)
-(set-face-attribute 'variable-pitch nil
-  :font "Noto Serif"
-  :height 120
-  :weight 'medium)
-(set-face-attribute 'fixed-pitch nil
-  :font "DejaVu Sans Mono"
-  :height 110
-  :weight 'medium)
-;; Makes commented text and keywords italics.
-;; This is working in emacsclient but not emacs.
-;; Your font must have an italic face available.
-(set-face-attribute 'font-lock-comment-face nil
-  :slant 'italic)
-(set-face-attribute 'font-lock-keyword-face nil
-  :slant 'italic)
+;; try switch to Source Code Pro
+    :font "Source Code Pro"
+    :height 110
+    :weight 'medium)
+  (set-face-attribute 'variable-pitch nil
+    :font "Source Code Pro"
+    :height 120
+    :weight 'medium)
+  (set-face-attribute 'fixed-pitch nil
+    :font "Source Code Pro"
+    :height 110
+    :weight 'medium)
+  ;; Makes commented text and keywords italics.
+  ;; This is working in emacsclient but not emacs.
+  ;; Your font must have an italic face available.
+  (set-face-attribute 'font-lock-comment-face nil
+    :slant 'italic)
+  (set-face-attribute 'font-lock-keyword-face nil
+    :slant 'italic)
 
-;; This sets the default font on all graphical frames created after restarting Emacs.
-;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
-;; are not right unless I also add this method of setting the default font.
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11"))
+  ;; This sets the default font on all graphical frames created after restarting Emacs.
+  ;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
+  ;; are not right unless I also add this method of setting the default font.
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro-11"))
 
-;; Uncomment the following line if line spacing needs adjusting.
-(setq-default line-spacing 0.12)
+  ;; Uncomment the following line if line spacing needs adjusting.
+  (setq-default line-spacing 0.12)
 
 (global-set-key (kbd "C-=") 'text-scale-increase) 
 (global-set-key (kbd "C--") 'text-scale-decrease)
@@ -258,9 +259,9 @@
  (setq-default c-default-style "linux"
                c-basic-offset 4)
 ;; if indent-tabs-mode is off, untabify before saving
-(add-hook 'write-file-hooks 
-         (lambda () (if (not indent-tabs-mode)
-                        (untabify (point-min) (point-max)))))
+;;(add-hook 'write-file-hooks 
+;;         (lambda () (if (not indent-tabs-mode)
+;;                        (untabify (point-min) (point-max)))))
 
 ;; inspired by https://zzamboni.org/post/how-to-insert-screenshots-in-org-documents-on-macos/
 

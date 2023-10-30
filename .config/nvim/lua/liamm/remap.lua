@@ -1,7 +1,7 @@
 local nnoremap = require("liamm.keymap").nnoremap
 
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
-nnoremap("<C-t>", "<cmd>ToggleTerm<CR>")
+nnoremap("<leader>tv", "<cmd>ToggleTerm<CR>")
 --nnoremap("<leader>ws", "<C-w>s")
 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
