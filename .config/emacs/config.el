@@ -62,6 +62,8 @@
 
 ;; Expands to: (elpaca evil (use-package evil :demand t))
 (use-package evil
+    :bind (:map evil-normal-state-map
+                ("<C-u>" . evil-scroll-page-up))
     :init      ;; tweak evil's configuration before loading it
     (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
     (setq evil-respect-visual-line-mode t)
@@ -152,7 +154,7 @@
      ;; (evil-global-set-key 'visual "K" (kbd ":m '<-2 RET gv '< gk")) 
      (evil-global-set-key 'visual "K" 'drag-stuff-up) 
      ;; (evil-global-set-key 'visual "J" (kbd ":m '>+1 RET gv '> gj")) 
-     (evil-global-set-key 'visual "J" 'drag-stuff-down) 
+     (evil-global-set-key 'visual "J" 'drag-stuff-down)
 
      (lm/leader-keys
         "p" '(:ignore t :wk "Project")
@@ -194,7 +196,7 @@
       (setq dashboard-set-file-icons t)
       (setq dashboard-banner-logo-title "Welcome to Emacs!")
       ;; (setq dashboard-startup-banner 'logo) ;; default logo
-      (setq dashboard-startup-banner "/home/liamm/pictures/smol-penguin.png")
+      (setq dashboard-startup-banner "~/pictures/smol-penguin.png")
       (setq dashboard-center-content t)
       (setq dashboard-items '((recents . 5)
                               (agenda . 5)

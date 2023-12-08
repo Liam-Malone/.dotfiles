@@ -7,6 +7,7 @@
 @define-color blue       #00FFB2;
 @define-color lightgreen #a6e3a1;
 @define-color magenta    #f5c2e7;
+@define-color archbtw    #1793d1;
 
 @define-color black-transparent-1 rgba(0, 0, 0, 0.1);
 @define-color black-transparent-2 rgba(0, 0, 0, 0.2);
@@ -203,8 +204,8 @@ tooltip label {
 #backlight,
 #pulseaudio.audio,
 #pulseaudio.microphone,
+#network,
 #network.enp46s0,
-#network.eno1,
 #bluetooth,
 #battery,
 #clock,
@@ -261,7 +262,6 @@ tooltip label {
 .modules-left > widget:first-child > #pulseaudio.audio,
 .modules-left > widget:first-child > #pulseaudio.microphone,
 .modules-left > widget:first-child > #network.enp46s0,
-.modules-left > widget:first-child > #network.eno1,
 .modules-left > widget:first-child > #bluetooth,
 .modules-left > widget:first-child > #battery,
 .modules-left > widget:first-child > #clock,
@@ -281,7 +281,6 @@ tooltip label {
 .modules-right > widget:last-child > #pulseaudio.audio,
 .modules-right > widget:last-child > #pulseaudio.microphone,
 .modules-right > widget:last-child > #network.enp46s0,
-.modules-right > widget:last-child > #network.eno1,
 .modules-right > widget:last-child > #bluetooth,
 .modules-right > widget:last-child > #battery,
 .modules-right > widget:last-child > #clock,
@@ -316,6 +315,11 @@ tooltip label {
     margin-bottom: 8px;
     color: @magenta;
 }
+#custom-wofi {
+    color: @archbtw;
+}
 #keyboard-state {
     margin-top: 8px;
+}
+#clock {
 }

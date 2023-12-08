@@ -17,7 +17,7 @@ export RASPBERRY_IP=$(sed -n 3p ~/documents/.raspi_info)
 export RASPATH=$(sed -n 5p ~/documents/.raspi_info)
 
 flamingo='\[\e[1;m\e[1;35m\] \W 🦩 ~> \[\e[m\e[m\]'
-penguin='\[\e[1;m\e[1;33m\e[1;m\] \W\[\e[m\e[m\] 🐧 \[\e[1;32m\]~>\[\e[m \e[m\]'
+penguin='\[\e[1;m\e[1;33m\e[1;m\] \W\[\e[m\e[m\] 🐧 \[\e[1;32m\]~> \[\e[m\e[m\]'
 shamrock='\[\e[1;m\e[1;32m\] \W ☘️  ~> \[\e[m\e[m\]'
 
 alias simple='export PS1="\[\e[1;32m\] ~> \[\e[m\]"'
@@ -51,3 +51,7 @@ neofetch
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 [ -f "/home/liamm/.ghcup/env" ] && source "/home/liamm/.ghcup/env" # ghcup-env
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$PATH:$BUN_INSTALL/bin

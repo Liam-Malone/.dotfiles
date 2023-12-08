@@ -1,15 +1,18 @@
+alias todo='glow ~/TODO.md'
 alias chtheme='kitty +kitten themes'
 alias ping='ping -c 5'
 alias new='clear; source ~/.bashrc'
 alias nclear='clear; neofetch'
-alias open='pcmanfm'
+alias open='nautilus'
 alias kpx='keepassxc-cli open'
 alias findsample='echo "find / -iname *tabliss* 2>/dev/null"'
-alias vi='vim'
+alias vi='\vim'
 alias vim='nvim'
 alias buildodin='odin build src/ -out:main'
 alias nzig='~/documents/code/zig/zig-dev-build/zig'
 alias zig-latest='~/documents/code/zig/zig-latest/zig'
+alias zig-mach='~/documents/code/zig/zig-mach/zig'
+alias :q=exit
 alias build-ghostty='cd ~/oss/ghostty; zig-latest build -p $HOME/.local -Doptimize=ReleaseFast; cd -'
 
 alias simple_random='echo $(head -c 100 /dev/urandom | tr -dc A-Za-z0-9 | head -c13)'
@@ -20,7 +23,7 @@ alias fehset='feh --bg-fill'
 export SCSS_IP=$(sed -n 8p ~/documents/.college_details)
 
 alias college='cd ~/documents/college'
-alias colssh='ssh $SCSS_IP'
+alias colssh='TERM=alacritty ssh $SCSS_IP'
 alias rust='cd ~/documents/code/rust'
 
 alias emacsd='emacs --daemon'

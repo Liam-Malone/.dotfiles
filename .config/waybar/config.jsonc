@@ -53,13 +53,14 @@
     // maybe add check to not attempt run when offline
     "exec": "( checkupdates; paru -Qua ) | wc -l",
     "interval": 7200,
-    "format": "<big>󰏖</big>\n {}",
+    "format": "<big>󰏖</big>\n{}",
     "on-click": "( checkupdates; paru -Qua ) | wc -l",
   },
 
   "clock": {
     "interval": 1,
-    "format": "{:<big> 󰥔</big>\n%R\n<big> </big> \n%d/%m}",
+    //"format": "{:<big> 󰥔</big>\n%R\n<big> </big> \n%d/%m}",
+    "format": "{:<big> </big> \n%d/%m\n<big> 󰥔</big>\n%R}",
     "tooltip": true,
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
@@ -142,10 +143,11 @@
     // "backlight",
     // "pulseaudio#microphone",
     "pulseaudio#audio",
-    "bluetooth",
+    //"bluetooth",
     "backlight",
-    "network#wlan0",
-    "network#eno1",
+    "network",
+    //"network#wlan0",
+    //"network#enp46s0",
     "battery"
   ],
   "tray": {
@@ -153,7 +155,7 @@
     "spacing": 10
   },
   "custom/wofi" : {
-      "format": "<big>󰲋</big>",
+      "format": "<big></big>",
       "on-click": "wofi --show drun",
       "tooltip": false
   },
@@ -178,7 +180,7 @@
     "tooltip": false
   },
   "pulseaudio#audio": {
-    "format": "{icon}",
+    "format": "<big>{icon}</big>",
     "format-bluetooth": "󰂯{icon}",
     "format-bluetooth-muted": "󰂯󰖁",
     "format-muted": "<big>󰖁</big> {volume}%",
@@ -220,9 +222,7 @@
       "on-scroll-up": "brightnessctl set 1%+",
       "on-scroll-down": "brightnessctl set 1%-"
   },
-  "network#wlan0": {
-    "interval": 1,
-    "interface": "wlan0",
+  "network": {
     "format-icons": [
       "󰤯",
       "󰤟",
@@ -232,39 +232,59 @@
     ],
     "format-wifi": "<big>{icon}</big>",
     "format-disconnected": "󰤮",
-    //"format-disconnected": "",
-    // "format-alt": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz",
+    "format-ethernet": "<big>󰈀</big>",
     "on-click": "nm-connection-editor",
     "on-click-right": "", // give applet's menu if possible
     "tooltip": true,
     "min-length": 9,
     "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
   },
-  "network#eno1": {
-    "interval": 1,
-    "interface": "eno1",
-    "format-icons": [
-      "󰈀"
-    ],
-    "format-ethernet": "{icon}",
-    // "format-disconnected": "{icon}",
-    "format-disconnected": "",
-    // "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr}",
-    "on-click": "",
-    "tooltip": true,
-    "min-length": 8,
-    "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
-  },
-  "bluetooth": {
-    "format-disabled": "",
-    "format-off": "",
-    "format-on": "󰂯",
-    "format-connected": "󰂯",
-    "format-connected-battery": "󰂯",
-    "tooltip-format-connected": "{device_alias} 󰂄{device_battery_percentage}%",
-    "on-click": "",
-    "tooltip": true
-  },
+  //"network#wlan0": {
+  //  "interval": 1,
+  //  "interface": "wlan0",
+  //  "format-icons": [
+  //    "󰤯",
+  //    "󰤟",
+  //    "󰤢",
+  //    "󰤥",
+  //    "󰤨"
+  //  ],
+  //  "format-wifi": "<big>{icon}</big>",
+  //  "format-disconnected": "󰤮",
+  //  "format-ethernet": "<big>󰈀</big>",
+  //  //"format-disconnected": "",
+  //  // "format-alt": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz",
+  //  "on-click": "nm-connection-editor",
+  //  "on-click-right": "", // give applet's menu if possible
+  //  "tooltip": true,
+  //  "min-length": 9,
+  //  "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
+  //},
+  //"network#enp46s0": {
+  //  "interval": 1,
+  //  "interface": "enp46s0",
+  //  "format-icons": [
+  //    "󰈀"
+  //  ],
+  //  "format-ethernet": "{icon}",
+  //  // "format-disconnected": "{icon}",
+  //  "format-disconnected": "",
+  //  // "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr}",
+  //  "on-click": "",
+  //  "tooltip": true,
+  //  "min-length": 8,
+  //  "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
+  //},
+  //"bluetooth": {
+  //  "format-disabled": "",
+  //  "format-off": "",
+  //  "format-on": "󰂯",
+  //  "format-connected": "󰂯",
+  //  "format-connected-battery": "󰂯",
+  //  "tooltip-format-connected": "{device_alias} 󰂄{device_battery_percentage}%",
+  //  "on-click": "",
+  //  "tooltip": true
+  //},
   "battery": {
     "states": {
       "good": 90,
