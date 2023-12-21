@@ -82,7 +82,8 @@
     //},
 
   "modules-center": [
-    "hyprland/workspaces",
+    //"hyprland/workspaces",
+    "wlr/taskbar",
     "river/tags"
     //"hyprland/submap",
     //"hyprland/window"
@@ -124,6 +125,17 @@
             "9" : "",
             "10" : ""
         }
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 20,
+        "all-outputs": true,
+        "on-click": "activate",
+        "ignore-list": [
+            "Alacritty",
+            "com.mitchellh.ghostty",
+            "contour",
+        ]
     },
  
   "hyprland/submap": {

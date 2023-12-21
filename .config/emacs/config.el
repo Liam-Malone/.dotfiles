@@ -131,6 +131,14 @@
         "t i" '(org-toggle-inline-images :wk "Toggle inline images")
         "t t" '(visual-line-mode :wk "Toggle truncated lines"))
 
+
+       (lm/leader-keys
+        "c" '(:ignore t :wk "Capitalize")
+        "c w" '(capitalize-word :wk "Capitalize word")
+        "c r" '(capitalize-region :wk "Capitalize region")
+        "c c" '(upcase-char :wk "Upcase char")
+        "c u" '(upcase-region :wk "Upcase region"))
+
      ;; Evil window bindings
      (lm/leader-keys
         "w" '(:ignore t :wk "Window")
@@ -145,9 +153,9 @@
         "w J" '(evil-window-move-very-bottom :wk "Move split to bottom")
         "w K" '(evil-window-move-very-top :wk "Move split to top")
         "w L" '(evil-window-move-far-right :wk "Move split to right")
-        ;;"w o" '(evil-window-_ :wk "__")
-        ;; "w _" '(evil-window-_ :wk "__")
         "w c" '(evil-window-delete :wk "Close window")
+        "w o" '(delete-other-windows :wk "__")
+        "w =" '(balance-windows :wk "__")
         "q k" '(kill-buffer-and-window :wk "Kill buf and window")
         "q q" '(save-buffers-kill-terminal :wk "Save bufs, kill term"))
 
@@ -169,6 +177,11 @@
     :if (display-graphic-p))
 (use-package all-the-icons-dired
     :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
+
+(setq backup-directory-alist
+      `((".*" . "~/emacs/auto-saves")))
+(setq auto-save-file-name-transforms
+      `((".*" "~/emacs/auto-saves" t)))
 
 (use-package company
   :defer 2
@@ -350,7 +363,8 @@
 ;; Global settings (defaults)
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
   doom-themes-enable-italic t) ; if nil, italics is universally disabled
-(load-theme 'doom-palenight t)
+;; (load-theme 'doom-monokai-spectrum t)
+  (load-theme 'doom-monokai-machine t)
 
 ;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)
@@ -420,6 +434,7 @@
     :init (add-hook 'org-mode-hook 'toc-org-enable))
 
 (add-hook 'org-mode-hook 'org-indent-mode)
+;;(setq (setq org-return-follows-link  t)
 (use-package org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 

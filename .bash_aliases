@@ -3,15 +3,15 @@ alias chtheme='kitty +kitten themes'
 alias ping='ping -c 5'
 alias new='clear; source ~/.bashrc'
 alias nclear='clear; neofetch'
-alias open='nautilus'
+alias open='xdg-open'
 alias kpx='keepassxc-cli open'
 alias findsample='echo "find / -iname *tabliss* 2>/dev/null"'
 alias vi='\vim'
 alias vim='nvim'
 alias buildodin='odin build src/ -out:main'
-alias nzig='~/documents/code/zig/zig-dev-build/zig'
-alias zig-latest='~/documents/code/zig/zig-latest/zig'
-alias zig-mach='~/documents/code/zig/zig-mach/zig'
+alias nzig='~/code/zig/zig-dev-build/zig'
+alias zig-latest='~/code/zig/zig-latest/zig'
+alias zig-mach='~/code/zig/zig-mach/zig'
 alias :q=exit
 alias build-ghostty='cd ~/oss/ghostty; zig-latest build -p $HOME/.local -Doptimize=ReleaseFast; cd -'
 
@@ -24,7 +24,6 @@ export SCSS_IP=$(sed -n 8p ~/documents/.college_details)
 
 alias college='cd ~/documents/college'
 alias colssh='TERM=alacritty ssh $SCSS_IP'
-alias rust='cd ~/documents/code/rust'
 
 alias emacsd='emacs --daemon'
 alias emacsc='emacsclient -c -a "emacs"'

@@ -30,8 +30,9 @@ PS1=$penguin
 set -o vi
 
 export GIT_EDITOR=nvim
+export EDITOR=nvim
 
-export GTK_IM_MODULE=fcitx
+#export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export SDL_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
